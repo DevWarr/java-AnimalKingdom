@@ -1,6 +1,6 @@
 package animalKingdom;
 
-public class Fish
+public class Fish extends Animal
 {
     
 }
