@@ -4,6 +4,17 @@ import java.util.*;
 
 public class Main
 {
+    public static void printFilteredList(ArrayList<Animal> array, Checker filter)
+    {
+        array.forEach(a -> 
+        {
+            if (filter.test(a))
+            {
+                System.out.println(a);
+            }
+        });
+    }
+
     public static void main(String[] args)
     {
         // Create new ArrayList
@@ -41,5 +52,22 @@ public class Main
         System.out.println("\nAnimals listed in order of how they move:\n");
         animalList.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
         animalList.forEach(a -> System.out.println(a));
+
+        System.out.println("\nAnimals listed that can breathe with lungs:\n");
+        printFilteredList(animalList, a -> a.breathe() == "lungs");
+
+        System.out.println("\nAnimals listed that breathe with lungs and were named in 1758:\n");
+        printFilteredList(animalList, a -> (a.breathe() == "lungs") && (a.getYear() == 1758));
+
+        System.out.println("\nAnimals listed that breathe with lungs and lay eggs:\n");
+        printFilteredList(animalList, a -> (a.breathe() == "lungs") && (a.reproduce() == "eggs"));
+        // printFilteredList(animalList, a -> a instanceof Bird); // Could also work (only Birds fit this description)
+
+        // Last two uses require that the list be sorted alphabetically.
+        // We already sorted the list, so we're already alphabetized and good to go!
+        System.out.println("\nAnimals listed that were names in 1758(alphabetical):\n");
+        printFilteredList(animalList, a -> a.getYear() == 1758);
+        System.out.println("\nAnimals listed that are mammals(alphabetical):\n");
+        printFilteredList(animalList, a -> a instanceof Mammal);
     }
 }
