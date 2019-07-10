@@ -15,9 +15,9 @@ public abstract class Animal
         this.year = year;
     }
     public abstract String getName();
-    public abstract void setName();
+    public abstract void setName(String name);
     public abstract int getYear();
-    public abstract void setYear();
+    public abstract void setYear(int year);
     public abstract String move();
     public abstract String breathe();
     public abstract String reproduce();

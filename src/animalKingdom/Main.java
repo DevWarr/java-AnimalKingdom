@@ -63,8 +63,10 @@ public class Main
         printFilteredList(animalList, a -> (a.breathe() == "lungs") && (a.reproduce() == "eggs"));
         // printFilteredList(animalList, a -> a instanceof Bird); // Could also work (only Birds fit this description)
 
-        // Last two uses require that the list be sorted alphabetically.
-        // We already sorted the list, so we're already alphabetized and good to go!
+        // Last two uses require that the list be sorted alphabetically, so lets sort them again:
+        animalList.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
+
+        // And now, we're alphabetized and good to go!
         System.out.println("\nAnimals listed that were names in 1758(alphabetical):\n");
         printFilteredList(animalList, a -> a.getYear() == 1758);
         System.out.println("\nAnimals listed that are mammals(alphabetical):\n");
