@@ -3,9 +3,9 @@ package animalKingdom;
 public abstract class Animal
 {
     private static int maxId = 0;
-    private int id;
-    private String name;
-    private int year;
+    int id;
+    String name;
+    int year;
 
     public Animal(String name, int year)
     {
@@ -14,7 +14,10 @@ public abstract class Animal
         this.name = name;
         this.year = year;
     }
-
+    public abstract String getName();
+    public abstract void setName();
+    public abstract int getYear();
+    public abstract void setYear();
     public abstract String move();
     public abstract String breathe();
     public abstract String reproduce();
@@ -22,6 +25,6 @@ public abstract class Animal
     @Override
     public String toString()
     {
-        return "The " + name + " was named in " + year + ".\nIt can " + move() + ", breathe with " + breathe() + ", and reproduces with " + reproduce() + ".\n";
+        return "The " + name + " was named in " + year + ".\nIt can " + move() + ", breathe with " + breathe() + ", and reproduce with " + reproduce() + ".";
     }
 }

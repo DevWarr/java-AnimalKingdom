@@ -29,5 +29,17 @@ public class Main
         animalList.add(new Fish("Salmon", 1758));
         animalList.add(new Fish("Catfish", 1817));
         animalList.add(new Fish("Perch", 1758));
+
+        System.out.println("\nAnimals listed by Year named(most recent to least recent):\n");
+        animalList.sort((a1, a2) -> a2.getYear() - a1.getYear());
+        animalList.forEach(a -> System.out.println(a));
+
+        System.out.println("\nAnimals listed Alphabetically:\n");
+        animalList.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
+        animalList.forEach(a -> System.out.println(a));
+
+        System.out.println("\nAnimals listed in order of how they move:\n");
+        animalList.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
+        animalList.forEach(a -> System.out.println(a));
     }
 }
