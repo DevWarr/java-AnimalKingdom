@@ -6,6 +6,9 @@
 # backup files
 *~
 
+# VS Code files
+/.vscode
+
 # Windows
 # thumbnails
 Thumbs.db
